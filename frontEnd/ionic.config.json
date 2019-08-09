@@ -1,0 +1,7 @@
+{
+  "name": "flowers",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

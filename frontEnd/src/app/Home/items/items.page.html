@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" (click)="startClicked()">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title  style="margin-left: 1.7cm">
+      <ion-icon name="flower"></ion-icon>
+        Flowers
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content translucent>
+<ion-card button="true" *ngFor="let item of items" (click)="select(item)">
+  <img src="../../../assets/{{item.img}}">
+  <ion-card-header>
+    <ion-card-title>
+     {{item.name}}
+    </ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    {{item.des}}
+  </ion-card-content>
+</ion-card>
+
+</ion-content>

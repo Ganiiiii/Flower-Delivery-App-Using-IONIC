@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title style="margin-left: 1.2cm">
+      <ion-icon name="flower"></ion-icon>
+      Deliver it..!
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content> 
+
+<form [formGroup]="deliverForm" (ngSubmit)="onSubmit()">
+<ion-card class="cardstyle" *ngIf="flower">
+  <ion-card-header>
+    <img src="../../../assets/{{flower.img}}">
+     <ion-card-title style="text-align: center">
+      {{flower.name}}
+    </ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-item>
+      <ion-label position="floating">Recipient Name:</ion-label>
+      <ion-input type="text" formControlName="reName" [class.is-invalid]="reName.invalid && reName.touched" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Address:</ion-label>
+      <ion-textarea formControlName="address" [class.is-invalid]="address.invalid && address.touched" required></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Mobile No:</ion-label>
+      <ion-input required type="text" [class.is-invalid]="contact.invalid && contact.touched" formControlName="contact" maxLength="10" onkeypress="return event.charCode >= 48 && event.charCode <= 57" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Date:</ion-label>
+      <ion-datetime required displayFormat="YYYY M D H:mm" min="{{date}}" max="2020" value="{{dateTime}}" formControlName="date" [class.is-invalid]="date1.invalid && date1.touched"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Message:</ion-label>
+      <ion-textarea required formControlName="message" [class.is-invalid]="message.invalid && message.touched"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Shops:</ion-label>
+        <ion-select formControlName="sName">
+          <ion-select-option *ngFor="let shop of shops" value="{{shop._id}}">{{shop.sName}}</ion-select-option>
+        </ion-select>
+    </ion-item>
+  
+  <ion-button color="secondary" class="btnstyle" type="button" routerLink="../../../items">
+      Back
+  </ion-button>
+
+  <ion-button color="primary" class="btnstyle" type="submit" [disabled]="!deliverForm.valid" style="margin-left: .2cm">
+    Place
+  </ion-button>
+  
+  </ion-card-content>
+</ion-card>
+</form>
+</ion-content>

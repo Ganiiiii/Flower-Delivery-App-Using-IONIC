@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title style="margin-left:3cm">
+      <ion-icon name="flower"></ion-icon>
+      Deliver it..!
+    </ion-title>
+    <ion-button slot="end" (click)="adminLogin()">
+    <ion-icon name="contact" size="large"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content> 
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<ion-card class="cardstyle">
+  <ion-card-header>
+    <ion-card-title style="text-align: center">
+      Customer  Login
+    </ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item>
+      <ion-label position="floating">User Name:</ion-label>
+      <ion-input type="text" formControlName="userName"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">Password:</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+   
+  <ion-button color="primary" class="btnstyle" type="submit" [disabled]="!loginForm.valid">
+    Login
+  </ion-button>
+  <ion-button color="secondary" class="btnstyle" type="button" routerLink="/register">
+    Register
+  </ion-button>
+  </ion-card-content>
+</ion-card>
+</form>
+</ion-content>

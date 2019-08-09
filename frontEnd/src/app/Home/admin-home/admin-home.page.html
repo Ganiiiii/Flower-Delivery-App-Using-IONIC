@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-button slot="start" (click)="adminLogOut()">
+      <ion-icon name="log-out"></ion-icon>
+    </ion-button>
+          <ion-searchbar placeholder="Enter Date To Search.." (ionInput)="searchange($event)"></ion-searchbar>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-row *ngFor="let order of orders;index as i"> 
+        <ion-col size="12">
+      <ion-card color="primary" *ngIf="flagArray[i]">
+        <ion-card-header>
+          <img src="../../../assets/{{order.flImg}}">
+          <ion-card-title>
+           {{order.reName}}
+          </ion-card-title>
+          <ion-card-subtitle>
+            {{order.flName}}
+          </ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <h2>
+              Sender Name : {{order.senderName}}<br>
+              Date : {{order.date}}<br>
+              Time : {{order.time}}<br>
+              Message : {{order.message}}<br>
+              Contact : {{order.contact}}
+          </h2>
+         <ion-button slot="end" color="light" (click)="orderComplete(order)"><ion-icon name="{{icon}}" color="success"></ion-icon></ion-button>     
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    </ion-row>
+</ion-content>
+
+ 
